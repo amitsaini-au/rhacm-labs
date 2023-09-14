@@ -6,7 +6,7 @@ metadata:
   namespace: etherpad
 spec:
   type: GitHub
-  pathname: https://github.com/redhat-gpte-devopsautomation/rhacm-labs.git
+  pathname: https://github.com/amitsaini-au/rhacm-labs.git
 ---
 apiVersion: app.k8s.io/v1beta1
 kind: Application
@@ -15,15 +15,15 @@ metadata:
   namespace: etherpad
 spec:
   componentKinds:
-  - group: apps.open-cluster-management.io
-    kind: Subscription
+    - group: apps.open-cluster-management.io
+      kind: Subscription
   descriptor: {}
   selector:
     matchExpressions:
-    - key: app
-      operator: In
-      values:
-      - etherpad-app
+      - key: app
+        operator: In
+        values:
+          - etherpad-app
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
@@ -40,4 +40,3 @@ spec:
     placementRef:
       kind: PlacementRule
       name: dev-clusters
-
